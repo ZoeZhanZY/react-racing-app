@@ -1,0 +1,17 @@
+@import "./styles/styles.scss";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  background-color: $background-color;
+  color: $neutral;
+}
+
+.App {
+	width: 60%;
+	margin: 0 auto;
+	min-width: 600px;
+}
+

@@ -1,0 +1,67 @@
+@import "../../../styles/styles.scss";
+
+.list {
+  width: 100%;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.row {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 24px auto;
+  background-color: aliceblue;
+  padding: 12px 24px;
+  border-radius: 3px;
+}
+
+.number {
+
+  font: italic bold 2rem "Josefin Sans", sans-serif;
+  font-weight: 600;
+  color: aliceblue;
+}
+.number-deco {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: $primary;
+  
+}
+.meeting {
+  flex-grow: 7;
+	flex-direction: column;
+	display: flex;
+	align-items: flex-start;
+}
+
+.meeting-name {
+  font: bold 1.5rem "Roboto", sans-serif;
+  color: $primary;
+}
+
+.race-number {
+  color: $neutral;
+}
+.small-number {
+  display: inline;
+  font: bold 1rem "Roboto", sans-serif;
+}
+.count-down {
+  border: 1px solid $primary;
+  flex-grow: 3;
+  color: $secondary;
+  border-radius: 3px;
+  padding: 20px 0;
+  font: bold 1.2rem "Roboto", sans-serif;
+}
+
+.to-go {
+	font: bold 0.8rem "Roboto", sans-serif;
+	color: $neutral;
+}

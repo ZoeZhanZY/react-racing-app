@@ -1,0 +1,13 @@
+@import "../../styles/styles.scss";
+
+.header {
+  font: italic 80px "Josefin Sans", sans-serif;
+  color: $primary;
+  padding: 40px;
+}
+
+.flag {
+	position: relative;
+	top: 30px;
+	transform: rotate(10deg);
+}
