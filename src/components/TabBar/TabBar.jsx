@@ -13,27 +13,32 @@ function a11yProps(index) {
   };
 }
 
-const TabBar = ({ activeTab, setActiveTab, renderedList }) => {
+const TabBar = ({
+  activeTab,
+  setActiveTab,
+  renderedList,
+  setIsStarted = { setIsStarted },
+}) => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  console.log({ renderedList });
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs value={value} onChange={handleChange} centered>
-          <Tab label="All" {...renderedList} />
-          <Tab label="Greyhound Racing" {...renderedList} />
+          <Tab label="All" />
+          {/* <Tab label="Greyhound Racing" />
           <Tab label="Harness Racing" {...a11yProps(2)} />
-          <Tab label="Horse Racing" {...a11yProps(3)} />
+          <Tab label="Horse Racing" {...a11yProps(3)} /> */}
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Item 1
+        {renderedList}
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      {/* <TabPanel value={value} index={1}>
         Item Two
       </TabPanel>
       <TabPanel value={value} index={2}>
@@ -41,7 +46,7 @@ const TabBar = ({ activeTab, setActiveTab, renderedList }) => {
       </TabPanel>
       <TabPanel value={value} index={3}>
         Item Four
-      </TabPanel>
+      </TabPanel> */}
     </Box>
   );
 };

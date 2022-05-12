@@ -1,11 +1,12 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-
+import RaceList from "./RaceList";
 import PropTypes from "prop-types";
-import './TabPanel.scss'
+import "./TabPanel.scss";
 
 export default function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, setIsStarted, ...other } = props;
+  console.log({ children });
 
   return (
     <div
@@ -16,48 +17,17 @@ export default function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <div>
-          <div className="row">
-            <div className="number">
-              <div className="number-deco"> 1</div>
-            </div>
-            <div className="meeting">
-              <div className="meeting-name">Launceston</div>
-              <div className="race-number">
-                Race number: <div className="small-number">12</div>
-              </div>
-            </div>
-            <div className="count-down">01:12</div>
-          </div>
-          <div className="row">
-            <div className="number">
-              <div className="number-deco"> 5</div>
-            </div>
-            <div className="meeting">
-              <div className="meeting-name">Launceston</div>
-              <div className="race-number">
-                Race number: <div className="small-number">12</div>
-              </div>
-            </div>
-						<div className="count-down">01:12
-							{/* <div className="to-go">TO GO</div> */}
-						</div>
-          </div>
-          <div className="row">
-            <div className="number">
-              <div className="number-deco"> 5</div>
-            </div>
-            <div className="meeting">
-              <div className="meeting-name">Launceston</div>
-              <div className="race-number">
-                Race number: <div className="small-number">12</div>
-              </div>
-            </div>
-            <div className="count-down">01:12</div>
-          </div>
-        </div>
-      )}
+      {value === index &&
+        children.map((el, index) => (
+          <RaceList
+            meeting_name={el.meeting_name}
+            race_number={el.race_number}
+            advertised_start={el.advertised_start}
+            key={el.race_id}
+            orderNumber={index + 1}
+            setIsStarted={setIsStarted}
+          />
+        ))}
     </div>
   );
 }

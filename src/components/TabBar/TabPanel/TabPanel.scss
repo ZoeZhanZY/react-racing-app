@@ -6,6 +6,11 @@
   display: inline-block;
 }
 
+.row:first-child .number-deco {
+  background-color: red;
+}
+
+
 .row {
   display: flex;
   gap: 24px;
@@ -18,7 +23,6 @@
 }
 
 .number {
-
   font: italic bold 2rem "Josefin Sans", sans-serif;
   font-weight: 600;
   color: aliceblue;
@@ -30,14 +34,13 @@
   border-radius: 30px;
   width: 60px;
   height: 60px;
-  background-color: $primary;
-  
+  background-color: $background-color;
 }
 .meeting {
   flex-grow: 7;
-	flex-direction: column;
-	display: flex;
-	align-items: flex-start;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
 }
 
 .meeting-name {
@@ -54,7 +57,7 @@
 }
 .count-down {
   border: 1px solid $primary;
-  flex-grow: 3;
+  width: 20%;
   color: $secondary;
   border-radius: 3px;
   padding: 20px 0;
@@ -62,6 +65,6 @@
 }
 
 .to-go {
-	font: bold 0.8rem "Roboto", sans-serif;
-	color: $neutral;
+  font: bold 0.8rem "Roboto", sans-serif;
+  color: $neutral;
 }
