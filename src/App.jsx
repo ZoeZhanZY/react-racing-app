@@ -13,10 +13,12 @@ const App = () => {
   const [activeTab, setActiveTab] = useState("All");
   const [renderedList, setRenderedList] = useState([]);
 
-  useEffect(() => {
+	useEffect(() => {
+		console.log({isStarted});
 		if (isStarted) {
 		setIsStarted(false);
 		} else {
+			
       axios
         .get(
           "https://api.neds.com.au/rest/v1/racing/?method=nextraces&count=10"
@@ -38,15 +40,18 @@ const App = () => {
             return a.advertised_start - b.advertised_start;
           });
 
-          setFullList(orderedListData);
+					setFullList(orderedListData);
+					console.log("get new data", {fullList});
         });
     }
   }, [isStarted]);
 
   useEffect(() => {
-    console.log({ fullList });
+    
     const allListData = [...fullList]?.slice(0, 5);
-    setRenderedList(allListData);
+		// const allListData = [...fullList];
+		setRenderedList(allListData);
+		console.log("useEffect setReneredList", {renderedList});
     // switch (activeTab) {
     // 	case "all":
     // 		 const allListData = [...fullList]?.slice(0, 5);

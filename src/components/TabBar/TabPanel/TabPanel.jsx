@@ -6,7 +6,7 @@ import "./TabPanel.scss";
 
 export default function TabPanel(props) {
   const { children, value, index, setIsStarted, ...other } = props;
-  console.log({ children });
+ 
 
   return (
     <div
@@ -19,7 +19,8 @@ export default function TabPanel(props) {
     >
       {value === index &&
         children.map((el, index) => (
-          <RaceList
+					<RaceList
+						isValid={el.isValid}
             meeting_name={el.meeting_name}
             race_number={el.race_number}
             advertised_start={el.advertised_start}

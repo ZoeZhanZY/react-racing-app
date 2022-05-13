@@ -17,14 +17,14 @@ const TabBar = ({
   activeTab,
   setActiveTab,
   renderedList,
-  setIsStarted = { setIsStarted },
+  setIsStarted ,
 }) => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  console.log({ renderedList });
+
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -35,7 +35,7 @@ const TabBar = ({
           <Tab label="Horse Racing" {...a11yProps(3)} /> */}
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={0} setIsStarted={setIsStarted}>
         {renderedList}
       </TabPanel>
       {/* <TabPanel value={value} index={1}>
