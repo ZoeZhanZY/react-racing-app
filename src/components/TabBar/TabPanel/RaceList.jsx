@@ -1,6 +1,4 @@
-
 import React from "react";
-
 import Countdown from "react-countdown";
 
 const RaceList = ({
@@ -10,7 +8,6 @@ const RaceList = ({
   orderNumber,
   setIsStarted,
 }) => {
-
   return (
     <div className="row">
       <div className="number">
@@ -26,9 +23,8 @@ const RaceList = ({
         <Countdown
           date={advertised_start * 1000}
           daysInHours={true}
-         
           onComplete={() => {
-            setTimeout(() => setIsStarted(true), 6000);
+            setTimeout(() => setIsStarted(true), 61000);
           }}
         >
           <div>Started!</div>

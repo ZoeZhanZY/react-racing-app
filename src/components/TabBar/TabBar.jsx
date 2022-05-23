@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./TabBar.scss";
 import TabPanel from "./TabPanel/TabPanel";
 import Tabs from "@mui/material/Tabs";
@@ -6,60 +6,47 @@ import Tab from "@mui/material/Tab";
 
 import Box from "@mui/material/Box";
 
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
-
-const TabBar = ({
-  activeTab,
-  setActiveTab,
-  renderedList,
-  setIsStarted ,
-}) => {
-  const [value, setValue] = useState(0);
-
+const TabBar = ({ activeTab, setActiveTab, renderedList, setIsStarted }) => {
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setActiveTab(newValue);
   };
 
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs value={value} onChange={handleChange} centered>
-          <Tab label="All" />
-          {/* <Tab label="Greyhound Racing" />
-          <Tab label="Harness Racing" {...a11yProps(2)} />
-          <Tab label="Horse Racing" {...a11yProps(3)} /> */}
+        <Tabs value={activeTab} onChange={handleChange} centered>
+          <Tab label="All" value="All" />
+          <Tab label="Greyhound Racing" value="RHRacing" />
+          <Tab label="Harness Racing" value="HNRacing" />
+          <Tab label="Horse Racing" value="HRacing" />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0} setIsStarted={setIsStarted}>
+      <TabPanel value="All" setIsStarted={setIsStarted} activeTab={activeTab}>
         {renderedList}
       </TabPanel>
-      {/* <TabPanel value={value} index={1}>
-        Item Two
+      <TabPanel
+        value="GHRacing"
+        setIsStarted={setIsStarted}
+        activeTab={activeTab}
+      >
+        {renderedList}
       </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
+      <TabPanel
+        value="HNRacing"
+        activeTab={activeTab}
+        setIsStarted={setIsStarted}
+      >
+        {renderedList}
       </TabPanel>
-      <TabPanel value={value} index={3}>
-        Item Four
-      </TabPanel> */}
+      <TabPanel
+        value="HRacing"
+        activeTab={activeTab}
+        setIsStarted={setIsStarted}
+      >
+        {renderedList}
+      </TabPanel>
     </Box>
   );
 };
-
-// const TabBar = () => {
-// 	return (
-//     <div className="Tabs">
-//       <div className="Tab">All</div>
-//       <div className="Tab">Greyhound Racing</div>
-//       <div className="Tab">Harness Racing</div>
-//       <div className="Tab">Harness Racing</div>
-//     </div>
-//   );
-// };
 
 export default TabBar;

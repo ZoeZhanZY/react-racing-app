@@ -1,26 +1,18 @@
 import React from "react";
-import Typography from "@mui/material/Typography";
 import RaceList from "./RaceList";
-import PropTypes from "prop-types";
 import "./TabPanel.scss";
 
-export default function TabPanel(props) {
-  const { children, value, index, setIsStarted, ...other } = props;
- 
-
+const TabPanel = ({ children, value, activeTab, setIsStarted }) => {
   return (
     <div
       className="list"
       role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
+      hidden={value !== activeTab}
     >
-      {value === index &&
+      {value === activeTab &&
         children.map((el, index) => (
-					<RaceList
-						isValid={el.isValid}
+          <RaceList
+            isValid={el.isValid}
             meeting_name={el.meeting_name}
             race_number={el.race_number}
             advertised_start={el.advertised_start}
@@ -31,10 +23,6 @@ export default function TabPanel(props) {
         ))}
     </div>
   );
-}
-
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
 };
+
+export default TabPanel;
