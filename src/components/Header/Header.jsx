@@ -5,7 +5,7 @@ import SportsScoreIcon from "@mui/icons-material/SportsScore";
 const Header = () => {
   return (
     <div className="header">
-      Next to go
+      <a href="#">Next to go</a>
       <SportsScoreIcon sx={{ fontSize: 80 }} className="flag" />
     </div>
   );
